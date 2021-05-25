@@ -24,7 +24,7 @@ export default class RestaurantsDAO {
             } else if ("cuisine" in filters) {
                 query = { "cuisine": { $eq: filters["cuisine"]}}
             } else if ("zipcode" in filters) {
-                query = { "adress.zipcode" : { $eq: filters["zipcode"]}}
+                query = { "address.zipcode" : { $eq: filters["zipcode"]}}
             }
         }
 
@@ -52,4 +52,3 @@ export default class RestaurantsDAO {
         }
     }
 }
-
