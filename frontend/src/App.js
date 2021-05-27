@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import RestaurantsList from "./components/RestaurantsList"
 import AddReview from "./components/AddReview"
 import Login from "./components/Login"
+import Restaurant from "./components/Restaurant"
+import NotFound from "./components/NotFound"
 
 function App() {
   const [user, setUser] = React.useState(null)
@@ -51,11 +53,16 @@ function App() {
                 <AddReview {...props} user={user}></AddReview>
               )}>
               </Route>
+              <Route path="/restaurants/:id" render={(props) => (
+                 <Restaurant {...props} user={user}></Restaurant>
+              )} >
+              </Route>
               <Route path="/login" render={(props) => (
                 <Login {...props} login={login}></Login>
               )}>
 
               </Route>
+              <Route path="*" component={NotFound}></Route>
             </Switch>
       </div>
       
